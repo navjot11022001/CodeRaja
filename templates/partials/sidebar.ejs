@@ -1,0 +1,34 @@
+<div class="sidebar">
+    <div class="logo-details">
+<i class="bx bxl-c-plus-plus"></i>
+<span class="logo_name">
+CodeRaja
+</span>
+</div>
+<ul class="nav-links">
+<li>
+    <a href="#"> <i class="bx bx-grid-alt"></i>
+        <span class="links_name">Status</span>
+    </a>
+</li>
+<li>
+    <a href="#"> <i class="bx bx-box"></i>
+        <span class="links_name">In Time</span>
+    </a>
+</li>
+<li>
+    <a href="/records/<%=employees._id%>"> <i class="bx bx-list-ul"></i>
+        <span class="links_name">All Records</span>
+    </a>
+</li>
+
+
+<li>
+    <form action="/out/<%=employees._id%>" method="POST">
+    <button type="submit" class="logout"> <i class="bx bx-log-out"></i>
+        <span class="links_name">go out</span>
+    </button>
+</form>
+</li>
+</ul>
+</div>

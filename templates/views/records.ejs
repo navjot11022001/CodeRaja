@@ -1,0 +1,68 @@
+<%- include("../partials/header") %>
+<body>
+    
+
+<div class="container">
+  <h1 class="text-center cc mt-5"> All Records Of The Visitors </h1>
+  
+  <div class="row">
+    <div class="mt-5 col-md-12">
+      
+      <table class="table table-lg cc">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">OnTime</th>
+            <th scope="col">Out-time</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let item of employees){%>
+            <tr>
+    <td><%=item.name%></td>
+    <td><%=item.email%></td>
+    <td><%=item.phone%></td>
+    <td><%=item.intime%></td>
+    <td class="out"><%=item.outtime%></td>
+    <!-- <%if(item.outtime!=""){%> 
+      <td class="text-successs" >In</td>
+      <%}%> -->
+      <% if(item.outtime!=undefined){ %>
+        <td class="text-danger">Out</td>
+      <% } else{ %>  
+        <td class="text-success">In</td>
+     <% } %>
+    </tr>
+    <%}%>
+   
+  </tbody>
+</table>
+</div>
+</div>
+<a href="/in/<%=employee._id%>" class="btn btn-primary text-center">back</a>
+  
+</div>
+
+
+
+<script>
+
+const s=document.querySelector(".text-successs");
+const out=document.querySelector(".out");
+
+if(out.trim.innerHTML==""){
+  s.innerHTML="in"
+}
+else{
+  s.innerHTML="Out";
+  s.style.color="red";
+}
+
+</script>
+</body>
+
+</html>
+ 
