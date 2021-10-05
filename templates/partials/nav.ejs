@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="bx bxl-c-plus-plus"></i>
+        <span class="logo_name">
+        CodeRaja
+        </span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          
+            <li class="">
+                <a class="res-a" href="/records/<%=employees._id%>"> <i class="bx bx-list-ul"></i>
+                    <span class="links_name">All Records</span>
+                </a>
+            </li>
+            
+            
+            <li>
+                <form action="/out/<%=employees._id%>?_method=PATCH" method="POST">
+                <button type="submit" class="logout"> <i class="bx bx-log-out"></i>
+                    <span class="links_name">go out</span>
+                </button>
+            </form>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>

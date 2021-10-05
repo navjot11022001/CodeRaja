@@ -1,3 +1,4 @@
+const dotenv = require("dotenv");
 const express=require("express");
 const app=express();
 const port=process.env.PORT || 8900;
@@ -5,6 +6,7 @@ require("./db/conn");
 const path=require("path");
 const router=require("./route/Record")
 
+dotenv.config({ path: './config.env' });
 app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/css")));
 app.use('/js',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")));
 app.use('/jq',express.static(path.join(__dirname,"../node_modules/jquery/dist")));

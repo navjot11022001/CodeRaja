@@ -18,6 +18,7 @@
 </head>
 <body>
     <%- include("../partials/sidebar")%>
+    <%- include("../partials/nav")%>
     
     
     
@@ -26,14 +27,14 @@
         <div class="container">
     
     <div class="status">
-        <h1 class="text-center my-5 in_status">
+        <h1 class="text-center mb-5 in_status">
             <% if(employees.outtime!=undefined){ %>
                 Opps!!   <%=employees.name%> <br/>
             You Are out...
             
             <% } else{ %>  
-              Welcome <%=employees.name%>
-                You Are In...
+              Welcome <%=employees.name%><br/>
+                You Are <b class="in">In...</b>
             
                 <% } %>
         </h1>
@@ -43,7 +44,7 @@
         </div>
     </div>
     
-    
+  
 </body>
 </html>
 <!-- </div>  -->

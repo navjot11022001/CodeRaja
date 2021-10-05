@@ -19,8 +19,18 @@
     <a href="/in/<%=employees._id%>" class="mt-1 ms-2 cc btn btn-secondary"
         data-toggle="tooltip" data-placement="right" title="Check Current status And other records">Back</a>
 <div class="container cc">
- <div class="row mt-5">
-  <div class=" offset-3 col-md-6 mt-5">
+    <% if(employees.outtime==undefined){ %>
+        <h3 class="my-3 text-center kk">Please click on <b>confirm checkout?</b> 
+            below for successfull checkout </h3>
+        
+    <% } else{ %>  
+      
+        <h3 class="my-3 text-center kg">
+        you have successfully checkedout 💛   
+        </h3>
+        <% } %>
+ <div class="row">
+  <div class=" offset-md-3 col-md-6 mt-5">
    <table class="table cc table-responsive table-bordered table-lg">
      <thead class="thead-dark mt-5">
            <th>
@@ -71,10 +81,19 @@
   </div>
 
  </div>
- <h3 class="text-center mt-5 end_line">On behalf of CodeRaja team we thaks you for the visit <br/>See You soon!.. 😃 
+ <h3 class="text-center mt-5 end_line">On behalf of CodeRaja team we thanks you for the visit <br/>See You soon!.. 😃 
  <br/>
- <a href="/" class="mt-3 btn btn-secondary text-center"
-    data-toggle="tooltip" data-placement="right" title="Check Current status And other records">Enter Again</a>
+ <% if(employees.outtime==undefined){ %>
+
+    <a href="/out/<%=employees._id%>" class="mt-3 btn btn-secondary text-center"
+    data-toggle="tooltip" data-placement="right" title="Check Current status And other records">Confirm checkout?</a>
+
+
+<% } else{ %>  
+  <a href="/" class="mt-3 btn btn-secondary text-center"
+  data-toggle="tooltip" data-placement="right" title="Check Current status And other records">Enter Again</a>
+
+    <% } %>
 </h3>
 </div>
 </body>

@@ -1,3 +1,4 @@
+const dotenv=require("dotenv")
 const express=require("express");
 // const { route } = require("../../../Ecommerse/routes/productRoutes");
 const router=express.Router();
@@ -5,7 +6,7 @@ const User=require("../model/User");
 const nodemailer=require("nodemailer");
 
 
-
+dotenv.config({ path: '../config.env' });
 
 router.get("/register",(req,res)=>{
     res.render("home")
@@ -33,10 +34,10 @@ let transporter = nodemailer.createTransport({
     // secure: false, // true for 465, false for other ports
     service:"gmail",
     auth: {
-      user:'cunavjot@gmail.com', // generated ethereal user
-      pass:'Navjot@1102', // generated ethereal password
+      user:process.env.EMAIL, // generated ethereal user
+      pass:process.env.PASSWORD, // generated ethereal password
     },
-    tls:{
+    tls:{ 
         rejectUnauthorized:false
     }
   });
@@ -60,7 +61,7 @@ console.log(employees);
 }
 catch(e){
     
-    console.log(e+"kuch to gadbad h");
+    console.log(e+" kuch to gadbad h");
 }
 }) 
 
@@ -91,6 +92,48 @@ router.get("/in",async (req,res)=>{
     res.render('in');
 })
 
+
+async function goo(res,employees){
+
+
+    let transporter = nodemailer.createTransport({
+        // host: "mail.codeRaja.com",
+        // port: 587,
+        // secure: false, // true for 465, false for other ports
+        service:"gmail",
+        auth: {
+          user:process.env.EMAIL, // generated ethereal user
+          pass:process.env.PASSWORD, // generated ethereal password
+        },
+        tls:{ 
+            rejectUnauthorized:false
+        }
+      });
+    
+      // send mail with defined transport object
+      let info = await transporter.sendMail({
+        from: '"CodeRaja 👻" <navjot1561@gmail.com>',
+        to:employees.email, 
+        subject: "CodeRaja confirmation timings",
+        text: ` ${employees.name} to CodeRaja 👻 you entered at ${employees.intime}`, 
+        html: `<b>Hello ${employees.name} you checkout at ${employees.outtime} from CodeRaja 👻 
+        thankyou for your visit see you soon 😃</b>`, 
+      });
+    
+    //   console.log("Message sent: %s", info.messageId);
+    //   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    
+
+    res.render('out',{employees});
+}
+
+// router.get()
+router.get("/out/:id",async (req,res)=>{
+    
+    const _id  = req.params.id;
+    const employee = await User.findById(_id);
+    goo(res,employee);
+})
 router.post("/out/:id",async (req,res)=>{
     try{
         const _id  = req.params.id;
@@ -99,13 +142,12 @@ router.post("/out/:id",async (req,res)=>{
     let a=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
     
         const employees=await User.findByIdAndUpdate({_id},{"outtime":a});
-        console.log(employees)
-        
             res.render('out',{employees});
-
+        
+        console.log(employees)
     }
     catch(e){
-        console.log("error in sending "+e)
+        console.log("mai 144 pe error dera hu"+e)
     }
 })
 

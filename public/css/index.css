@@ -8,8 +8,7 @@
    
 }
 body{
-    
-	background-image: url("./images/background.svg");
+  background-image: url("./images/background.svg");
 }
 .sidebar{
   position: fixed;
@@ -130,7 +129,30 @@ margin-top: 30% !important;
     font-size: 2.5rem;
     
 }
+.cc label{
+  font-size:1.8rem;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+.cc input{
+  padding: 10px;
+}
+.navbar{
+  display: none;
+}
+.kk{
 
+  color: Red;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-top:10px !important ;
+}
+.kg{
+  color: green;
+  font-size: 2rem;
+  text-transform: capitalize;
+  margin-top:10px !important ;
+}
 
 @media (max-width:1079px) {
     
@@ -145,7 +167,9 @@ margin-top: 30% !important;
         font-size: 4rem;
         margin-top: 60% !important;
         }
-    }
+      }
+
+
 
     .nav-links li form button {
             background-color: transparent;
@@ -161,13 +185,76 @@ margin-top: 30% !important;
     .nav-links li form button:hover{
         background-color: rgb(25, 124, 236);
     }
-@media (max-width:650px) {
-    
-    .in_status{
+    td{
+      overflow-wrap:normal;
+    }
+
+    @media (max-width:650px) {
+      .sidebar{
+        display: none;
+      }
+      .home-sectionn{
+        position: fixed;
+        width: 100%;
+        left: 0px;
+      }
+      .navbar{
+        display: block;
+      }
+      .status{
+        transform: translateY(-13%);
+      }
+      .in_status{
         font-size: 3rem;
         margin-top: 100% !important;
-        }
+      }
+.logout{
+  margin-top: 1rem !important;
+  text-decoration: none;
+  padding: 5px;
+  background-color: transparent;
+  outline: none;
+  
+}
+
     }
+ /* res nav */
+    .res-a{
+      font-size: 1.2rem;
+      text-decoration: none;
+    color: black;
+border-style: none;
+    }
+    
+    @media (max-width:400px) {
+    
+      .in_status{
+          font-size: 3rem;
+          margin-top: 100% !important;
+          }
+          .end_line{
+            font-size: 1rem;
+           /* margin-left: 7rem;  */
+          }
+          .kg{
+            font-size: 1.5rem;
+          }
+          table{
+            /* width: 90% !important; */
+            font-size: .5rem;
+          }
+          .hk{
+            font-size:0.8rem ;
+          }
+       .cc label{
+         font-size: 1.2rem;
+       } 
+       .cc input{
+         padding: 3px;
+       }
+      }
+
+
     .navbarr{
         background-color: blue;
         /* padding: 8px ; */
@@ -177,3 +264,13 @@ margin-top: 30% !important;
         color: white;
 
     }
+      .navbarr{
+          background-color: blue;
+          /* padding: 8px ; */
+      }
+      .intro{
+          font-size: 2.5rem;
+          color: white;
+  
+      }
+     
