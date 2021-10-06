@@ -1,5 +1,7 @@
+const dotenv=require("dotenv");
+dotenv.config({ path: './config.env' });
 const mongoose=require("mongoose");
-mongoose.connect("mongodb+srv://Navjot:Navjot%401102@cluster0.cwlmu.mongodb.net/visitorRecord?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     // useCreateIndex: true,
     useUnifiedTopology: true,

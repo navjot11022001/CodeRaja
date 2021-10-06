@@ -1,4 +1,5 @@
-const dotenv=require("dotenv")
+const dotenv=require("dotenv");
+dotenv.config({ path: './config.env' });
 const express=require("express");
 // const { route } = require("../../../Ecommerse/routes/productRoutes");
 const router=express.Router();
@@ -6,7 +7,6 @@ const User=require("../model/User");
 const nodemailer=require("nodemailer");
 
 
-dotenv.config({ path: '../config.env' });
 
 router.get("/register",(req,res)=>{
     res.render("home")
@@ -16,7 +16,6 @@ router.get("/register",(req,res)=>{
 router.get("/",(req,res)=>{
 res.render("home");
 })
-
 
 router.get("/home",(req,res)=>{
     res.render("home");
