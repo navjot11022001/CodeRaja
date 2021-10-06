@@ -5,8 +5,8 @@ const port=process.env.PORT || 8900;
 require("./db/conn");
 const path=require("path");
 const router=require("./route/Record")
-
-dotenv.config({ path: './config.env' });
+ 
+dotenv.config({ path: './config/config.env' });
 app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/css")));
 app.use('/js',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")));
 app.use('/jq',express.static(path.join(__dirname,"../node_modules/jquery/dist")));
@@ -15,14 +15,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,"../public")));
 app.use(router);
 
-
 // const ejs=require("ejs");
  
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"../templates/views"));
 
 // ejs.registerPartials(path.join(__dirname,"../templates/partials"));
-
+ 
 
 app.get("/register",(req,res)=>{
     res.render("home")

@@ -1,11 +1,12 @@
 const dotenv=require("dotenv");
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './config/config.env' });
 const express=require("express");
 // const { route } = require("../../../Ecommerse/routes/productRoutes");
 const router=express.Router();
 const User=require("../model/User"); 
 const nodemailer=require("nodemailer");
 
+console.log(process.env.EMAIL)
 
 
 router.get("/register",(req,res)=>{
